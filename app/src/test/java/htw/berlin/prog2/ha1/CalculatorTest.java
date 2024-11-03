@@ -122,7 +122,19 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    @DisplayName("should display error when exceeding max digits")
+    void testExceedingMaxDigits() {
+        Calculator calc = new Calculator();
 
+        for (int i = 0; i < 11; i++) {
+            calc.pressDigitKey(1);
+        }
 
+        String expected = "Error";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 }
 
