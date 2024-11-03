@@ -90,5 +90,23 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+
+
+    // Teilaufgabe 1
+    @Test
+    @DisplayName("should change positive number to negative")
+    void testChangeToNegative() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(9);
+        calc.pressNegativeKey();
+
+        String expected = "-9";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+
 }
 
