@@ -74,6 +74,14 @@ public class Calculator {
     public void pressUnaryOperationKey(String operation) {
         latestValue = Double.parseDouble(screen);
         latestOperation = operation;
+        
+        // Teilaufgabe 3
+        // Bugfix: Inversion von Null
+        if (operation.equals("1/x") && latestValue == 0) {
+            screen = "Error";
+            return;
+        }
+
         var result = switch(operation) {
             case "√" -> Math.sqrt(Double.parseDouble(screen));
             case "%" -> Double.parseDouble(screen) / 100;
