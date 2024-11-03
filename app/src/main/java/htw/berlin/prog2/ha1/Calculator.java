@@ -33,6 +33,13 @@ public class Calculator {
 
         if(screen.equals("0") || latestValue == Double.parseDouble(screen)) screen = "";
 
+        // Teilaufgabe 3
+        // Bugfix Error bei mehr als maximal 11 Zeichen 10 Ziffern & 1 Punkt
+        if (screen.length() >= 10) {
+            screen = "Error";
+            return;
+        }
+
         screen = screen + digit;
     }
 
@@ -74,7 +81,7 @@ public class Calculator {
     public void pressUnaryOperationKey(String operation) {
         latestValue = Double.parseDouble(screen);
         latestOperation = operation;
-        
+
         // Teilaufgabe 3
         // Bugfix: Inversion von Null
         if (operation.equals("1/x") && latestValue == 0) {
